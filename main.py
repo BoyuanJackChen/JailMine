@@ -14,7 +14,7 @@ for line in keys_file:
 # Load the models, and the sorting file path
 MODEL_NAME='mistral-7b'
 MODEL_PATH=f'mistralai/Mistral-7B-v0.1' # An example of attacking mistral-7b
-REPHRASE_PATH=f'meta-llama/Llama-2-7b-chat-hf' 
+REPHRASE_PATH=f'meta-llama/Llama-2-7b-chat-hf'
 JUDGE_PATH='meta-llama/Meta-Llama-Guard-2-8B'
 SORTING_PATH = 'sorting.pth'
 EMBED_PATH='sentence-transformers/gtr-t5-xl'
@@ -35,12 +35,12 @@ question_single = [
 
 # Initialize the miner
 miner = JailMine.JailMine(
-    model_name=MODEL_NAME,
-    target_model_path=MODEL_PATH,
-    rephrase_model_path=REPHRASE_PATH,
-    sorting_model_path=SORTING_PATH,
-    embedding_model_path=EMBED_PATH,
-    judge_model_path=JUDGE_PATH,
+    model_name = MODEL_NAME,
+    target_model_path = MODEL_PATH,
+    rephrase_model_path = REPHRASE_PATH,
+    sorting_model_path = SORTING_PATH,
+    embedding_model_path = EMBED_PATH,
+    judge_model_path = JUDGE_PATH,
     n_devices = 2,
 )
 

@@ -468,7 +468,9 @@ class JailMine:
                   {"role": "assistant", "content": assistant}]
             
             new_tokens = self.model.tokenizer.encode(text)
-            input_ids = self.judge_tokenizer.apply_chat_template(chat, return_tensors="pt").to(self.device)
+            print(f"Chat is:\n{chat}")
+            input()
+            input_ids = self.judge_tokenizer.apply_chat_template(chat, return_tensors="pt").to(self.device)   # This line gives input_ids!!!!!
             output = self.judge_model.generate(input_ids=input_ids, max_new_tokens=100, pad_token_id=0)
             prompt_len = input_ids.shape[-1]
             answer = self.judge_tokenizer.decode(output[0][prompt_len:], skip_special_tokens=True)
