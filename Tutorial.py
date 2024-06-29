@@ -13,9 +13,9 @@ for line in keys_file:
 
 # Load the models, and the sorting file path
 MODEL_NAME='mistral-7b'
-MODEL_PATH = 'mistralai/Mistral-7B-v0.1'          # Victim Model
-REPHRASE_PATH = 'meta-llama/Llama-2-7b-chat-hf'   # Attacker Model
-JUDGE_PATH = 'meta-llama/Meta-Llama-Guard-2-8B'    # Judge Model
+MODEL_PATH = '../huggingface_cache/models--mistralai--Mistral-7B-v0.1'     # Victim Model
+REPHRASE_PATH = 'meta-llama/Llama-2-7b-chat-hf'                            # Attacker Model
+JUDGE_PATH = 'meta-llama/Meta-Llama-Guard-2-8B'                            # Judge Model
 SORTING_PATH = 'sorting.pth'
 EMBED_PATH='sentence-transformers/gtr-t5-xl'
 
@@ -43,8 +43,8 @@ miner = JailMine.JailMine(
     sorting_model_path = SORTING_PATH,
     embedding_model_path = EMBED_PATH,
     judge_model_path = JUDGE_PATH,
-    n_devices = 2,
+    n_devices = 1,
 )
 
 # Run
-miner.run(questions = questions_set, m=5, N=2000, output_path="./result.csv")
+miner.run(questions = questions_sampled, m=5, N=2000)
